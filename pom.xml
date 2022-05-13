@@ -18,6 +18,13 @@
   </properties>
 
   <dependencies>
+
+    <dependency>
+      <groupId>org.codehaus.groovy</groupId>
+      <artifactId>groovy</artifactId>
+      <classifier>indy</classifier>
+      <version>3.0.10</version>
+    </dependency>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
@@ -27,6 +34,28 @@
   </dependencies>
 
   <build>
+
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <compilerId>groovy-eclipse-compiler</compilerId>
+        </configuration>
+        <dependencies>
+          <dependency>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy-eclipse-compiler</artifactId>
+            <version>3.7.1</version>
+          </dependency>
+          <dependency>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy-eclipse-batch</artifactId>
+            <version>4.0.2-02</version>
+          </dependency>
+        </dependencies>
+      </plugin>
+    </plugins>
+
     <pluginManagement><!-- lock down plugins versions to avoid using Maven 
         defaults (may be moved to parent pom) -->
       <plugins>
@@ -72,4 +101,13 @@
       </plugins>
     </pluginManagement>
   </build>
+
+  <pluginRepositories>
+    <pluginRepository>
+      <id>groovy-plugins-release</id>
+      <url>https://groovy.jfrog.io/artifactory/plugins-release</url>
+    </pluginRepository>
+  </pluginRepositories>
+
+
 </project>
